@@ -1,0 +1,24 @@
+name: "Task"
+description: "<Động từ> <đối tượng>, 5–100 ký tự"
+type: "Task"
+title: "[Task] "
+body:
+  - type: textarea
+    id: s1
+    attributes:
+      label: "Việc cần làm"
+    validations:
+      required: true
+  - type: textarea
+    id: s2
+    attributes:
+      label: "Definition of done"
+      value: "- [ ] Test pass\n- [ ] PR merged"
+    validations:
+      required: true
+  - type: textarea
+    id: s3
+    attributes:
+      label: "Ghi chú kỹ thuật"
+    validations:
+      required: false

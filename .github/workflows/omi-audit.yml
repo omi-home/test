@@ -1,0 +1,43 @@
+name: omi-audit
+on:
+  issues:
+    types: [opened, edited, closed, reopened, typed, untyped, milestoned, demilestoned]
+  pull_request:
+    types: [opened, edited, synchronize, reopened, closed]
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+concurrency:  # audit quét toàn bộ nên run mới thay run cũ; pr-lint tách nhóm theo PR
+  group: omi-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || 'audit' }}
+  cancel-in-progress: true
+jobs:
+  audit:
+    if: >-
+      (github.event_name != 'pull_request' || github.event.action == 'closed') &&
+      (github.event_name != 'issues' || github.event.issue.title != 'OMI Audit')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: omi-home/omi-hub
+          path: .omi-hub
+          token: ${{ secrets.OMI_PROJECT_TOKEN }}
+      - run: python .omi-hub/scripts/omi.py audit --fix
+        env:
+          GH_TOKEN: ${{ secrets.OMI_PROJECT_TOKEN }}
+          OMI_CONFIG: ${{ vars.OMI_CONFIG }}
+  pr-lint:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: omi-home/omi-hub
+          path: .omi-hub
+          token: ${{ secrets.OMI_PROJECT_TOKEN }}
+      - run: python .omi-hub/scripts/omi.py pr-lint ${{ github.event.pull_request.number }}
+        env:
+          GH_TOKEN: ${{ secrets.OMI_PROJECT_TOKEN }}
+          OMI_CONFIG: ${{ vars.OMI_CONFIG }}

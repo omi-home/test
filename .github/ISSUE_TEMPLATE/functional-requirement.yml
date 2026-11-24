@@ -1,0 +1,26 @@
+name: "Functional Requirement"
+description: "Hệ thống phải <hành vi>"
+type: "Functional Requirement"
+title: "[Functional Requirement] Hệ thống phải "
+body:
+  - type: textarea
+    id: s1
+    attributes:
+      label: "Mô tả"
+      description: "Đầu vào → xử lý → đầu ra"
+    validations:
+      required: true
+  - type: textarea
+    id: s2
+    attributes:
+      label: "Acceptance criteria"
+      description: "Mỗi dòng kiểm chứng được bằng test; không tự động được thì ghi [manual]"
+      value: "- [ ] "
+    validations:
+      required: true
+  - type: textarea
+    id: s3
+    attributes:
+      label: "Ràng buộc"
+    validations:
+      required: false

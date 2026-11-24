@@ -1,0 +1,26 @@
+name: "User Story"
+description: "<Vai trò> có thể <hành động>"
+type: "User Story"
+title: "[User Story] "
+body:
+  - type: textarea
+    id: s1
+    attributes:
+      label: "Story"
+      value: "Là <vai trò>, tôi muốn <hành động> để <giá trị>."
+    validations:
+      required: true
+  - type: textarea
+    id: s2
+    attributes:
+      label: "Acceptance criteria"
+      description: "Mỗi dòng kiểm chứng được bằng test; không tự động được thì ghi [manual]"
+      value: "- [ ] "
+    validations:
+      required: true
+  - type: textarea
+    id: s3
+    attributes:
+      label: "Ghi chú"
+    validations:
+      required: false

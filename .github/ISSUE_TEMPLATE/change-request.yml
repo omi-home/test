@@ -1,0 +1,31 @@
+name: "Change Request"
+description: "Thay đổi <đối tượng>: <tóm tắt>"
+type: "Change Request"
+title: "[Change Request] Thay đổi "
+body:
+  - type: textarea
+    id: s1
+    attributes:
+      label: "Lý do thay đổi"
+    validations:
+      required: true
+  - type: textarea
+    id: s2
+    attributes:
+      label: "Nội dung thay đổi"
+      description: "Trước → sau"
+    validations:
+      required: true
+  - type: input
+    id: s3
+    attributes:
+      label: "Affects"
+      description: "Item bị ảnh hưởng, ví dụ: #12 #15"
+    validations:
+      required: true
+  - type: textarea
+    id: s4
+    attributes:
+      label: "Ảnh hưởng dự kiến"
+    validations:
+      required: false

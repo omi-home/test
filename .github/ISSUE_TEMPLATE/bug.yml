@@ -1,0 +1,38 @@
+name: "Bug"
+description: "<Thành phần>: <triệu chứng>"
+type: "Bug"
+title: "[Bug] "
+body:
+  - type: input
+    id: s1
+    attributes:
+      label: "Affects"
+      description: "Item bị ảnh hưởng, ví dụ: #42"
+    validations:
+      required: true
+  - type: textarea
+    id: s2
+    attributes:
+      label: "Môi trường"
+      description: "Phiên bản, OS, trình duyệt"
+    validations:
+      required: false
+  - type: textarea
+    id: s3
+    attributes:
+      label: "Các bước tái hiện"
+      value: "1. "
+    validations:
+      required: true
+  - type: textarea
+    id: s4
+    attributes:
+      label: "Kết quả mong đợi"
+    validations:
+      required: true
+  - type: textarea
+    id: s5
+    attributes:
+      label: "Kết quả thực tế"
+    validations:
+      required: true

@@ -1,0 +1,33 @@
+name: "Epic"
+description: "Danh từ chỉ capability, 5–80 ký tự"
+type: "Epic"
+title: "[Epic] "
+body:
+  - type: textarea
+    id: s1
+    attributes:
+      label: "Mục tiêu"
+      description: "Capability mang lại giá trị gì, cho ai"
+    validations:
+      required: true
+  - type: textarea
+    id: s2
+    attributes:
+      label: "Phạm vi"
+      description: "Gạch đầu dòng những gì thuộc Epic"
+    validations:
+      required: true
+  - type: textarea
+    id: s3
+    attributes:
+      label: "Ngoài phạm vi"
+      description: "Những gì không làm"
+    validations:
+      required: false
+  - type: textarea
+    id: s4
+    attributes:
+      label: "Chỉ số thành công"
+      description: "Đo thế nào là thành công"
+    validations:
+      required: false
